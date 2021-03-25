@@ -1,0 +1,6 @@
+D:\Uni\3rd year\SEN381\Project\Project\SEN381_Project\SEN381_Project\SEN381_Project\obj\Debug\netcoreapp3.1\SEN381_Project.csprojAssemblyReference.cache
+D:\Uni\3rd year\SEN381\Project\Project\SEN381_Project\SEN381_Project\SEN381_Project\obj\Debug\netcoreapp3.1\SEN381_Project.Form1.resources
+D:\Uni\3rd year\SEN381\Project\Project\SEN381_Project\SEN381_Project\SEN381_Project\obj\Debug\netcoreapp3.1\SEN381_Project.csproj.GenerateResource.cache
+D:\Uni\3rd year\SEN381\Project\Project\SEN381_Project\SEN381_Project\SEN381_Project\obj\Debug\netcoreapp3.1\SEN381_Project.AssemblyInfoInputs.cache
+D:\Uni\3rd year\SEN381\Project\Project\SEN381_Project\SEN381_Project\SEN381_Project\obj\Debug\netcoreapp3.1\SEN381_Project.AssemblyInfo.cs
+D:\Uni\3rd year\SEN381\Project\Project\SEN381_Project\SEN381_Project\SEN381_Project\obj\Debug\netcoreapp3.1\SEN381_Project.csproj.CoreCompileInputs.cache
