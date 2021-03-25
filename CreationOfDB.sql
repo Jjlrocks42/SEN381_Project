@@ -72,7 +72,7 @@ GO
 	);
 	go
 
-		CREATE TABLE Clients
+	CREATE TABLE Clients
 	(
 	Client_id int NOT NULL identity(1,1)  PRIMARY KEY,
 	Client_First_name varchar(255) NOT NULL,
@@ -86,21 +86,57 @@ GO
 	);
 	go
 
+	CREATE TABLE Calls
+	(
+	Call_id int NOT NULL identity(1,1) PRIMARY KEY,
+	Client_id int Foreign KEY References Clients(Client_id),
+	Client_name varchar(255) NOT NULL,
+	Call_Type varchar(255) NOT NULL,
+	Employee_id varchar(25) NOT NULL,
+	Employee_Name varChar(255) NOT NULL,
+	Start_Time date NOT NULL,
+	End_Time date NULL
+	Duration int NULL,
 	
 
-	----- here is where you should start working
+	);
+	go
+	
+	CREATE TABLE Tickets
+	(
+	Ticket_id int NOT NULL identity(1,1) PRIMARY KEY,
+	Call_id int Foreign KEY References Calls(Call_id),
+	Job_id int Foreign KEY References Jobs(Job_id),
+	Feedback varchar(255) Not null,
+	Start_Time date NOT NULL,
+	End_Time date NULL
+	Duration int NULL,
+	
 
-
+	);
+	go
+	
 	CREATE TABLE Employees
 	(
 	Employee_id int NOT NULL identity(1,1) PRIMARY KEY,
-	First_name varchar(50) NOT NULL,
-	Last_name varchar(50) NOT NULL,
-	Title varchar(50) Not null,
-	Phone varchar(25) Not Null,
-	Gender varChar(1) Default('U'),
-	ID_Number varchar(13) unique not null,
-	salary money not null,
+	Emp_name varchar(255) NOT NULL,
+	Email varchar(255) NOT NULL,
+	Phone_Number varchar(255) Not Null,
+	Address varchar(255)  NOT NULL,
+	Job_Type varchar(255) NOT NULL,
+	
+
+	);
+	go
+	
+	CREATE TABLE Jobs
+	(
+	Jobs_id int NOT NULL identity(1,1) PRIMARY KEY,
+	Employee_id vint Foreign KEY References Employees(Employee_id),
+	Job Details varchar(50) NOT NULL,
+	Start_Time date NOT NULL,
+	End_Time date NULL
+	Duration int NULL,
 	
 
 	);
