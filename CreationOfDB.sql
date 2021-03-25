@@ -32,61 +32,63 @@ GO
 	use DBpremier_service_solutions
 	go
 
-	----Tables
-		CREATE TABLE Customers
+	----Tables--------------------------------
+
+	CREATE TABLE Business
 	(
-	customer_id int NOT NULL identity(1,1)  PRIMARY KEY,
-	customer_First_name varchar(50) NOT NULL,
-	customer_Last_name varchar(50) NOT NULL,
-	ID_Number varchar(13) unique not null,
+	Business_id int not null  identity(1,1) Primary key,
+	Business_Name varchar(255) not null,
+	Phone_Number varchar(255) not null,
+	Address varchar(255) not null,
+	);
+	go
+
+
+	CREATE TABLE Packages
+	(
+	Package_id int NOT NULL identity(1,1)  PRIMARY KEY,
+	Package_Priority varchar(255) NOT NULL,
+	Package_Status varchar(255) not null,
+	);
+	go
+
+	CREATE TABLE tbl_Services
+	(
+	Service_id int NOT NULL identity(1,1)  PRIMARY KEY,
+	Package_id int NOT NULL  Foreign KEY References Packages(Package_id),
+	Service_Details varchar(255) NOT NULL,
+	Service_Status varchar(255) not null,
+	);
+	go
+
+	CREATE TABLE Contracts
+	(
+	Contract_id int NOT NULL identity(1,1)  Primary key,
+	Contract_Details varchar(255) not null,
+	Contract_Start_Date date not null,  --- change in ERD
+	Contract_End_Date date not null,
+	Contract_Status varchar(255) not null,  --- change in ERD
+	Package_id int NOT NULL  Foreign KEY References Packages(Package_id)
+	);
+	go
+
+		CREATE TABLE Clients
+	(
+	Client_id int NOT NULL identity(1,1)  PRIMARY KEY,
+	Client_First_name varchar(255) NOT NULL,
+	Client_Last_name varchar(255) NOT NULL,
+	BusinessID int Foreign KEY References Business(Business_id),
 	Gender varChar(1) not null Default('U'),
 	Email_Address varchar(320),
-	Phone varchar(25) Not Null
-	
-	
-	);
-	go
-
-	CREATE TABLE Bookings
-	(
-	Booking_ID int NOT NULL identity(1,1)  Primary key,
-	Flight_Details varchar(50) not null,
-	Seat_Number int unique not null,
-	Price money not null,
-	Customer_ID int NOT NULL  Foreign KEY References Customers(Customer_ID)
-	);
-	go
-
-
-
-	CREATE TABLE Waiting_List
-	(
-	Waiting_ID int Not Null identity(1,1)  PRIMARY KEY,
-	Booking_ID int NOT NULL  Foreign key references Bookings(Booking_ID)
-	);
-	go
-
-	CREATE TABLE Planes
-	(
-	Plane_id int NOT NULL identity(1,1)  PRIMARY KEY,
-	Plane_name varchar(50) NOT NULL,
-	Plane_model varchar(50) Not null,
-	);
-	go
-
-
-
-	Create TABLE Services_
-    (
-	Service_id int NOT NULL identity(1,1) Primary KEY,
-	service_Details char(50) NOT NULL
+	Client_Address varchar(255) Not Null,
+	Contract_id int Foreign KEY References Contracts(Contract_id)
 	
 	);
-
 	go
 
+	
 
-
+	----- here is where you should start working
 
 
 	CREATE TABLE Employees
@@ -104,48 +106,6 @@ GO
 	);
 	go
 
-	CREATE TABLE Emp_schedule
-	(
-	Employee_Flight_id int not null  identity(1,1) Primary key,
-	Flight_Details varchar(50) not null,
-	Time_of_Departure datetime,
-	Time_of_arrival datetime,
-	Employee_id int not null Foreign key References Employees(Employee_id),
-	);
-	go
-
-	CREATE TABLE Maintenance
-	(
-	Maintenance_id int NOT NULL identity(1,1)  PRIMARY KEY,
-	Employee_ID int not null Foreign key references Employees(Employee_id),
-	Plane_ID int not null Foreign key references Planes(Plane_id),
-	Maintenance_Last_performed datetime,
-	Maintenance_Cost money not null
-	);
-	go
-
-	CREATE TABLE Employee_services
-	(
-	Service_id int NOT NULL Foreign key references Services_(service_id),
-	Employee_ID int not null Foreign key references Employees(Employee_id),
-	Service_Availability Varchar(30) not null,
 	
-	);
-
-	go
-
-	CREATE TABLE Flight
-	(
-	Flight_id int NOT NULL identity(1,1)  PRIMARY KEY,
-	Flight_Location varchar(50) not null,
-	Booking_ID int NOT NULL   Foreign KEY References Bookings(Booking_ID),
-	Employee_Flight_id int not null   Foreign key References emp_schedule(Employee_Flight_Id),
-	Plane_ID int NOT NULL   foreign key references Planes(Plane_id),
-	Time_of_Departure datetime,
-	Time_of_arrival datetime
-	
-	);
 
 
-	
-	go
