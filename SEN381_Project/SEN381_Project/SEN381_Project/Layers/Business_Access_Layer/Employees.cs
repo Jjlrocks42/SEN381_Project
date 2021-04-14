@@ -26,34 +26,43 @@ namespace SEN381_Project.Layers.Business_Access_Layer
         public string Address1 { get => Address; set => Address = value; }
         public string JobType1 { get => JobType; set => JobType = value; }
 
-        private static void View_Client_Job()
+        private static void View_Client_Job(int ID)
         {
-
+            Data_Handler.ExecuteSqlCmd("SELECT *"
+                                        + "FROM Jobs"
+                                        + "WHERE Employee_id = " + ID.ToString());
         }
 
-        private static void View_Client_History()
+        private static void View_Client_History(int ID)
         {
-
+            Data_Handler.ExecuteSqlCmd("SELECT *"
+                                        + "FROM Calls"
+                                        + "WHERE Emloyee_id = " + ID.ToString());
         }
 
-        private static void View_Client_SLA()
+        private static void View_Client_SLA(int ID)
         {
-
+            
         }
 
-        private static void View_Client_Package()
+        private static void View_Client_Package(int ID)
         {
-
+            Data_Handler.ExecuteSqlCmd("SELECT *"
+                                        + "FROM Packages"
+                                        + "WHERE Employee_ID = " + ID.ToString());
         }
 
-        private static void Add_client()
+        private static void Add_client(string name, string email, string phone, string adrees, string job)
         {
-
+            Data_Handler.ExecuteSqlCmd("INSERT INTO *"
+                                        + "VALUE("+name+email+phone+adrees+job+")");
         }
 
-        private static void Delete_Client()
+        private static void Delete_Client(int ID)
         {
-
+            Data_Handler.ExecuteSqlCmd("DELETE"
+                                        + "FROM Employees"
+                                        + "WHERE Employee_id = " + ID.ToString());
         }
     }
 }

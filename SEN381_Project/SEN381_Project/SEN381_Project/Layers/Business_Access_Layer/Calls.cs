@@ -34,19 +34,25 @@ namespace SEN381_Project.Layers.Business_Access_Layer
         public int ClientID1 { get => ClientID; set => ClientID = value; }
         public int EmpID1 { get => EmpID; set => EmpID = value; }
 
-        private static void View_Logs()
+        private static void View_Logs(int ID)
         {
-
+            Data_Handler.ExecuteSqlCmd("SELECT *"
+                                        + "FROM Calls"
+                                        + "WHERE Cleint_id = " + ID.ToString());
         }
 
-        private static void View_Jobs()
+        private static void View_Jobs(int ID)
         {
-
+            Data_Handler.ExecuteSqlCmd("SELECT *"
+                                        + "FROM Jobs"
+                                        + "WHERE Call_ID = " + ID.ToString());
         }
 
-        private static void Delete_Call()
+        private static void Delete_Call(int ID)
         {
-
+            Data_Handler.ExecuteSqlCmd("DELETE "
+                                        + "FROM Calls"
+                                        + "WHERE Call_id = " + ID.ToString());
         }
     }
 }
