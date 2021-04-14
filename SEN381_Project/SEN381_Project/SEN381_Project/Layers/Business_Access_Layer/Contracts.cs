@@ -31,21 +31,33 @@ namespace SEN381_Project.Layers.Business_Access_Layer
         public DateTime Start_Date1 { get => Start_Date; set => Start_Date = value; }
         public DateTime End_Date1 { get => End_Date; set => End_Date = value; }
 
-        private static void Show_Contract()
+        private static void Show_Contract(int ContractID)
         {
-
+            DataTable DT = new DataTable();
+            DT = Data_Handler.ExecuteSqlCmd("SELECT *"
+                                        + "FROM Contracts"
+                                        + "WHERE ContractID1 = " + ContractID.ToString());
         }
-        private static void Track_Performance()
+        private static void Track_Performance(int StatusID)
         {
-
+            DataTable DT = new DataTable();
+            DT = Data_Handler.ExecuteSqlCmd("SELECT *"
+                                        + "FROM Contracts"
+                                        + "WHERE Status1 = " + StatusID.ToString());
         }
-        private static void End_Contract()
+        private static void End_Contract(int EndID)
         {
-
+            DataTable DT = new DataTable();
+            DT = Data_Handler.ExecuteSqlCmd("SELECT *"
+                                        + "FROM Contracts"
+                                        + "WHERE End_Date1 = " + EndID.ToString());
         }
-        private static void Get_Package()
+        private static void Get_Package(int PackageID)
         {
-
+            DataTable DT = new DataTable();
+            DT = Data_Handler.ExecuteSqlCmd("SELECT *"
+                                        + "FROM Contracts"
+                                        + "WHERE PackageID1 = " + PackageID.ToString());
         }
     }
 }

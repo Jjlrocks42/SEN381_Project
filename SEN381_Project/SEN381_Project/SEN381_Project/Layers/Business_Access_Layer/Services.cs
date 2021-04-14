@@ -24,19 +24,28 @@ namespace SEN381_Project.Layers.Business_Access_Layer
         public int PackageID1 { get => PackageID; set => PackageID = value; }
         public int ServiceID1 { get => ServiceID; set => ServiceID = value; }
 
-        private static void Track_Performance()
+        private static void Track_Performance(int PerformanceID)
         {
-
+            DataTable DT = new DataTable();
+            DT = Data_Handler.ExecuteSqlCmd("SELECT *"
+                                        + "FROM Services"
+                                        + "WHERE ServiceID = " + PerformanceID.ToString());
         }
 
-        private static void Remove_Service()
+        private static void Remove_Service(int ServiceId)
         {
-
+            DataTable DT = new DataTable();
+            DT = Data_Handler.ExecuteSqlCmd("DELETE *"
+                                        + "FROM Services"
+                                        + "WHERE ServiceID = " + ServiceId.ToString());
         }
 
-        private static void Get_Service()
+        private static void Get_Service(int ServiceId)
         {
-
+            DataTable DT = new DataTable();
+            DT = Data_Handler.ExecuteSqlCmd("SELECT *"
+                                        + "FROM Services"
+                                        + "WHERE ServiceID = " + ServiceId.ToString());
         }
     }
 }

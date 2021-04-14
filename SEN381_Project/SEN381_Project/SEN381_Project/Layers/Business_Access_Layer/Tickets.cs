@@ -27,19 +27,28 @@ namespace SEN381_Project.Layers.Business_Access_Layer
         public DateTime Duration1 { get => Duration; set => Duration = value; }
         public string Feedback1 { get => Feedback; set => Feedback = value; }
 
-        private static void View_Client_job()
+        private static void View_Client_job(int JobID)
         {
-
+            DataTable DT = new DataTable();
+            DT = Data_Handler.ExecuteSqlCmd("SELECT *"
+                                        + "FROM Tickets"
+                                        + "WHERE JobID1 = " + JobID.ToString());
         }
 
-        private static void Assign_Emp()
+        private static void Assign_Emp(int JobID)
         {
-
+            DataTable DT = new DataTable();
+            DT = Data_Handler.ExecuteSqlCmd("SELECT *"
+                                        + "FROM Tickets"
+                                        + "WHERE JobID1 = " + JobID.ToString());
         }
 
-        private static void Delete_Record()
+        private static void Delete_Record(int CallID)
         {
-
+            DataTable DT = new DataTable();
+            DT = Data_Handler.ExecuteSqlCmd("DELETE *"
+                                        + "FROM Tickets"
+                                        + "WHERE CallID1 = " + CallID.ToString());
         }
     }
 }
