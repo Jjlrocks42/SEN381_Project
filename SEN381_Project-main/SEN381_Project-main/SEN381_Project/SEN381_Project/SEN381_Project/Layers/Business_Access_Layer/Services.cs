@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using SEN381_Project.Layers.Data_Access_Layer;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace SEN381_Project.Layers.Business_Access_Layer
 {

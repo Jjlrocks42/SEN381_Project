@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using SEN381_Project.Layers.Data_Access_Layer;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace SEN381_Project.Layers.Business_Access_Layer
 {
@@ -66,10 +69,10 @@ namespace SEN381_Project.Layers.Business_Access_Layer
                                                              + "WHERE Client_id = " + ClientID.ToString());
         }
 
-        private static void Add_client(BussID,char Gendr, string Email,string Address,int contract_id,string num)
+        private static void Add_client(string Name, string Surname, int BussID, char Gendr, string Email, string Address, int contract_id, string num)
         {
-            Data_Handler.ExecuteNonQuery("INSERT INTO Clients "
-                                        + "VALUES (" + Name + ',' + Surname + ',' + BussID + ',' + Gendr +',' + Email + ',' + Address + ',' + contract_id + ',' + num + ")");
+            Data_Handler.ExecuteNonQuery("Insert into Clients "
+                                        + "VALUES (" + Name + ',' + Surname + ',' + BussID + ',' + Gendr + ',' + Email + ',' + Address + ',' + contract_id + ',' + num + ")");
         }
 
         private static void Delete_Client()

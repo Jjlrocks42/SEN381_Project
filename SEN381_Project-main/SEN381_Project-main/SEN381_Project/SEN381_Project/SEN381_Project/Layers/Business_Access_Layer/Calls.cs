@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using SEN381_Project.Layers.Data_Access_Layer;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace SEN381_Project.Layers.Business_Access_Layer
 {
@@ -55,10 +58,10 @@ namespace SEN381_Project.Layers.Business_Access_Layer
                                         + "WHERE Call_id = " + ID.ToString());
         }
 
-        private static void Add_Call(int callID, int clientID, int empID, string client_Name, string call_Type, string employee_Name, DateTime start_Time, DateTime end_time, Double duration)
-        {
-            Data_Handler.ExecuteNonQuery("INSERT INTO Clients "
-                                        + "VALUES (" + Name + ',' + Surname + ',' + BussID + ',' + Gendr +',' + Email + ',' + Address + ',' + contract_id + ',' + num + ")");
-        }
+        //private static void Add_Log(int callID, int clientID, int empID, string client_Name, string call_Type, string employee_Name, DateTime start_Time, DateTime end_time, Double duration)
+        //{
+        //    Data_Handler.ExecuteNonQuery("Insert into Clients "
+        //                                + "VALUES (" + clientID + ',' + empID + ',' + client_Name + ',' + call_Type + ',' + employee_Name + ',' + Address + ',' + contract_id + ',' + num + ")");
+        //}
     }
 }

@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using SEN381_Project.Layers.Data_Access_Layer;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace SEN381_Project.Layers.Business_Access_Layer
 {
@@ -43,9 +46,10 @@ namespace SEN381_Project.Layers.Business_Access_Layer
 
         }
 
-        private static void Assign_Emp()
+        private static void Assign_Emp(int jobID, int callID, int empID, string job_Details, double duration, DateTime start_Time, DateTime end_Time)
         {
-
+                Data_Handler.ExecuteSqlCmd("INSERT INTO *"
+                                            + "VALUE(" + jobID + callID + phone + adrees + job + ")");
         }
 
         private static void Delete_Job()
