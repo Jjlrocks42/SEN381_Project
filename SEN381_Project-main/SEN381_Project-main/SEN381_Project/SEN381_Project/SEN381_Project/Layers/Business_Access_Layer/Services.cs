@@ -50,5 +50,11 @@ namespace SEN381_Project.Layers.Business_Access_Layer
                                         + "FROM Services"
                                         + "WHERE ServiceID = " + ServiceId.ToString());
         }
+
+        private static void Add_Services(int packageID, string service_Details, string status)
+        {
+            Data_Handler.ExecuteNonQuery("INSERT INTO Services "
+                                     + "VALUES (" + packageID + "," + service_Details + ",'" + status + ")");
+        }
     }
 }

@@ -1,0 +1,48 @@
+﻿CHANGES MADE: 
+(2021-04-16)
+*Added the needed libraries to all the business logic classes
+
+*Changed the data Handler
+	-Added the needed function
+	-Made all the variables and methods static
+
+*I added parameters to the bussiness class methods
+
+*Added the 'add_log' method to the calls class
+
+*Changed 'removed_employee' name in jobs to 'unassign_employee'
+
+*Fixxed our CreateDB.sql document 
+
+*Removed the assign_employee method in Ticket class
+
+*Added methods for bussiness	(It is not in the class-diagram so you can remove it if you really want to)
+
+*Added the 'View_Client_Business' method to Client class
+
+*Changed the SQL statements in the Tickets class (Where did CallID1 come from?)
+
+*Added the 'Add-Ticket' method to Tickets class
+
+*Added the teams Presentation Layer
+
+*Added code for the UnAssignEmp method in Tickets
+
+*Added the Call_id field to the Jobs table
+
+*Changed View_Client_History to show their call history (I do not know what history to show so I guessed it was calls)
+
+*Fixxed a WHOLE LOT of SQL statements in the business classes
+
+*Bussiness class = PAIN PAIN and PAIN. Added Street Address and Email Address field to Business table. Fixxed the horrible naming conventions
+
+*Clients: send help.... 3 fields were not put into the client properties, naming convetion was fixxed
+
+*Did an overall update on the inserts
+
+*Changed the tblServices to [Services] in SQLCreate
+
+PLACES WE SHOULD LOOK AT:
+*Packages - Track_Performance method
+*Calls - Add_Log method
+*Jobs - Assign_Employee method

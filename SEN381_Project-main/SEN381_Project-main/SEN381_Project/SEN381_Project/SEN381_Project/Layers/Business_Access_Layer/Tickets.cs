@@ -35,15 +35,13 @@ namespace SEN381_Project.Layers.Business_Access_Layer
             DataTable DT = new DataTable();
             DT = Data_Handler.ExecuteSqlCmd("SELECT *"
                                         + "FROM Tickets"
-                                        + "WHERE JobID1 = " + JobID.ToString());
+                                        + "WHERE Job_id = " + JobID.ToString());
         }
 
-        private static void Assign_Emp(int JobID)
+        private static void Add_Ticket(int callID, int jobID, string feedback, DateTime start_Time, DateTime end_Time, DateTime duration)
         {
-            DataTable DT = new DataTable();
-            DT = Data_Handler.ExecuteSqlCmd("SELECT *"
-                                        + "FROM Tickets"
-                                        + "WHERE JobID1 = " + JobID.ToString());
+            Data_Handler.ExecuteNonQuery("INSERT INTO Tickets "
+                                     + "VALUES (" + callID + "," + jobID + ",'" + feedback + "','" + start_Time + "','" + end_Time + "'," + duration + ")");
         }
 
         private static void Delete_Record(int CallID)
@@ -51,7 +49,7 @@ namespace SEN381_Project.Layers.Business_Access_Layer
             DataTable DT = new DataTable();
             DT = Data_Handler.ExecuteSqlCmd("DELETE *"
                                         + "FROM Tickets"
-                                        + "WHERE CallID1 = " + CallID.ToString());
+                                        + "WHERE Call_id = " + CallID.ToString());
         }
     }
 }

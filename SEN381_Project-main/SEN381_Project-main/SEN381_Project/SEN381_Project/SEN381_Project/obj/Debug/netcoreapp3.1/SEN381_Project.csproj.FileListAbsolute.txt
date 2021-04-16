@@ -4,3 +4,9 @@ D:\Uni\3rd year\SEN381\Project\Project\SEN381_Project\SEN381_Project\SEN381_Proj
 D:\Uni\3rd year\SEN381\Project\Project\SEN381_Project\SEN381_Project\SEN381_Project\obj\Debug\netcoreapp3.1\SEN381_Project.AssemblyInfoInputs.cache
 D:\Uni\3rd year\SEN381\Project\Project\SEN381_Project\SEN381_Project\SEN381_Project\obj\Debug\netcoreapp3.1\SEN381_Project.AssemblyInfo.cs
 D:\Uni\3rd year\SEN381\Project\Project\SEN381_Project\SEN381_Project\SEN381_Project\obj\Debug\netcoreapp3.1\SEN381_Project.csproj.CoreCompileInputs.cache
+C:\Users\Wynand\Downloads\SEN381_Project-main\SEN381_Project-main\SEN381_Project\SEN381_Project\SEN381_Project\bin\Debug\netcoreapp3.1\SEN381_Project.exe
+C:\Users\Wynand\Downloads\SEN381_Project-main\SEN381_Project-main\SEN381_Project\SEN381_Project\SEN381_Project\obj\Debug\netcoreapp3.1\SEN381_Project.csprojAssemblyReference.cache
+C:\Users\Wynand\Downloads\SEN381_Project-main\SEN381_Project-main\SEN381_Project\SEN381_Project\SEN381_Project\obj\Debug\netcoreapp3.1\SEN381_Project.Form1.resources
+C:\Users\Wynand\Downloads\SEN381_Project-main\SEN381_Project-main\SEN381_Project\SEN381_Project\SEN381_Project\obj\Debug\netcoreapp3.1\SEN381_Project.csproj.GenerateResource.cache
+C:\Users\Wynand\Downloads\SEN381_Project-main\SEN381_Project-main\SEN381_Project\SEN381_Project\SEN381_Project\obj\Debug\netcoreapp3.1\SEN381_Project.AssemblyInfoInputs.cache
+C:\Users\Wynand\Downloads\SEN381_Project-main\SEN381_Project-main\SEN381_Project\SEN381_Project\SEN381_Project\obj\Debug\netcoreapp3.1\SEN381_Project.AssemblyInfo.cs

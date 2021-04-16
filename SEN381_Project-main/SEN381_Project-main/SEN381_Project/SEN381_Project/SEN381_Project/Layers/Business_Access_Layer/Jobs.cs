@@ -35,7 +35,7 @@ namespace SEN381_Project.Layers.Business_Access_Layer
         public DateTime Start_Time1 { get => Start_Time; set => Start_Time = value; }
         public DateTime End_Time1 { get => End_Time; set => End_Time = value; }
 
-        private static void View_Client_Job()
+        private static void View_Client_Job(int ClientID)
         {
              DataTable DT = new DataTable();
             DT = Data_Handler.ExecuteSqlCmd("SELECT *"
@@ -46,22 +46,22 @@ namespace SEN381_Project.Layers.Business_Access_Layer
 
         }
 
-        private static void Assign_Emp(int jobID, int callID, int empID, string job_Details, double duration, DateTime start_Time, DateTime end_Time)
+        private static void Assign_Emp(int callID, int empID, string job_Details, double duration, DateTime start_Time, DateTime end_Time)
         {
-                Data_Handler.ExecuteSqlCmd("INSERT INTO *"
-                                            + "VALUE(" + jobID + callID + phone + adrees + job + ")");
+            Data_Handler.ExecuteNonQuery("INSERT INTO Jobs "
+                                      + "VALUES (" + callID + "," + empID + ",'" + job_Details + "','" + start_Time + "','" + end_Time + "'," + duration + ")");
         }
 
-        private static void Delete_Job()
+        private static void Delete_Job(int JobID)
         {
              Data_Handler.ExecuteNonQuery("DELETE *"
                             + "FROM Jobs"
                             + "WHERE Job_id = " + JobID.ToString());
         }
 
-        private static void Remove_Emp()
+        private static void Unassign_Emp(int newEmployee,int oldEmployee)
         {
-
+            Data_Handler.ExecuteNonQuery("UPDATE Jobs SET Employee_id = " + newEmployee + " WHERE Employee_id = " + oldEmployee);
         }
     }
 }

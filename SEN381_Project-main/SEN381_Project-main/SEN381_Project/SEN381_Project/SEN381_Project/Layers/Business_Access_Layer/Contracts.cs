@@ -39,28 +39,28 @@ namespace SEN381_Project.Layers.Business_Access_Layer
             DataTable DT = new DataTable();
             DT = Data_Handler.ExecuteSqlCmd("SELECT *"
                                         + "FROM Contracts"
-                                        + "WHERE ContractID1 = " + ContractID.ToString());
+                                        + "WHERE Contract_id = " + ContractID.ToString());
         }
         private static void Track_Performance(int StatusID)
         {
             DataTable DT = new DataTable();
             DT = Data_Handler.ExecuteSqlCmd("SELECT *"
                                         + "FROM Contracts"
-                                        + "WHERE Status1 = " + StatusID.ToString());
+                                        + "WHERE Contract_Status = " + StatusID.ToString());
         }
         private static void End_Contract(int EndID)
         {
             DataTable DT = new DataTable();
             DT = Data_Handler.ExecuteSqlCmd("SELECT *"
                                         + "FROM Contracts"
-                                        + "WHERE End_Date1 = " + EndID.ToString());
+                                        + "WHERE Contract_End_Date = " + EndID.ToString());
         }
         private static void Get_Package(int PackageID)
         {
             DataTable DT = new DataTable();
             DT = Data_Handler.ExecuteSqlCmd("SELECT *"
                                         + "FROM Contracts"
-                                        + "WHERE PackageID1 = " + PackageID.ToString());
+                                        + "WHERE Package_id = " + PackageID.ToString());
         }
     }
 }

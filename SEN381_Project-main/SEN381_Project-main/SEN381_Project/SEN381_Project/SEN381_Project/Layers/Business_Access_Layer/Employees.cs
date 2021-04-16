@@ -10,13 +10,13 @@ namespace SEN381_Project.Layers.Business_Access_Layer
     class Employees
     {
         private int EmpID;
-        private string Name, Number, Email, Address, JobType;
+        private string Name, PhoneNumber, Email, Address, JobType;
 
-        public Employees(int empID, string name, string number, string email, string address, string jobType)
+        public Employees(int empID, string name, string phoneNumber, string email, string address, string jobType)
         {
             EmpID = empID;
             Name = name;
-            Number = number;
+            PhoneNumber = phoneNumber;
             Email = email;
             Address = address;
             JobType = jobType;
@@ -24,12 +24,12 @@ namespace SEN381_Project.Layers.Business_Access_Layer
 
         public int EmpID1 { get => EmpID; set => EmpID = value; }
         public string Name1 { get => Name; set => Name = value; }
-        public string Number1 { get => Number; set => Number = value; }
+        public string PhoneNumber1 { get => PhoneNumber; set => PhoneNumber = value; }
         public string Email1 { get => Email; set => Email = value; }
         public string Address1 { get => Address; set => Address = value; }
         public string JobType1 { get => JobType; set => JobType = value; }
 
-        private static void View_Client_Job(int ID)
+        private static void View_Employees(int ID)
         {
             Data_Handler.ExecuteSqlCmd("SELECT *"
                                         + "FROM Jobs"
@@ -53,13 +53,12 @@ namespace SEN381_Project.Layers.Business_Access_Layer
             Data_Handler.ExecuteSqlCmd("SELECT *"
                                         + "FROM Packages"
                                         + "WHERE Employee_ID = " + ID.ToString());
-            Data_Handler.
         }
 
-        private static void Add_client(string name, string email, string phone, string adrees, string job)
+        private static void Add_Employee(string name, string phoneNumber, string email, string address, string jobType)
         {
-            Data_Handler.ExecuteSqlCmd("INSERT INTO *"
-                                        + "VALUE("+name+email+phone+adrees+job+")");
+            Data_Handler.ExecuteNonQuery("INSERT INTO Employees "
+                                      + "VALUES ('" + name + "','" + email + "','" + phoneNumber + "','" + address + "','" + jobType + "')");
         }
 
         private static void Delete_Client(int ID)

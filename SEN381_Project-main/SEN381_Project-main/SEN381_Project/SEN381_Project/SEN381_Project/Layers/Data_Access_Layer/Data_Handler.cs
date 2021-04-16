@@ -5,14 +5,16 @@ using System.Data.Sql;
 using System.Data.Common;
 using System.Security.Cryptography.X509Certificates;
 using System.Runtime.CompilerServices;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace SEN381_Project.Layers.Data_Access_Layer
 {
-    //KRY DIE GEDEELTE WAT ONS GEDOEN HET EN PASTE DIT HIER
+    //NOTE
     class Data_Handler
     {
-        // Only common generic methods exists for all derived classes.
-        public int OpenConnection()
+        static SqlConnection conn = new SqlConnection("Data Source = (local); Initial Catalog=DBpremier_service_solutions;Integrated Security=SSPI");
+        public static void OpenConnection()
         {
             try
             {
@@ -22,23 +24,45 @@ namespace SEN381_Project.Layers.Data_Access_Layer
             catch (Exception)
             {
 
-                MessageBox.Show("Database connection unsuccessfull", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            return 1;
         }
 
         //close connection
-        public int CloseConnection()
+        public static void CloseConnection()
         {
-            conn != null ? conn.close;
-            return 1;
+            if (conn != null)
+            {
+                conn.Close();
+                Console.WriteLine("\nConnection close");
+            }
         }
 
         //make adustable according to recieved queries
-        public int ExecuteSqlCommand()
+        public static DataTable ExecuteSqlCmd(string command)
         {
-            Console.WriteLine("Sql Server specific Command Executed successfully");
-            return 1;
+            OpenConnection();
+            SqlDataAdapter da = new SqlDataAdapter(command,conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            Console.WriteLine("\nData Retrieved");
+            CloseConnection();
+            return dt;
+        }
+
+        public static void ExecuteNonQuery(string command)
+        {
+            try
+            {
+                OpenConnection();
+                SqlCommand cmd = new SqlCommand(command, conn);
+                cmd.ExecuteNonQuery();
+                Console.WriteLine("\nDatabase Edited");
+                CloseConnection();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Edit failed: " + e);
+            }
         }
     }
 }

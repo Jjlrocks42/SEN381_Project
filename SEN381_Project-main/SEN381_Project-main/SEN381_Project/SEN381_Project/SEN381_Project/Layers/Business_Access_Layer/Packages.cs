@@ -25,5 +25,24 @@ namespace SEN381_Project.Layers.Business_Access_Layer
         public string Priority1 { get => Priority; set => Priority = value; }
         public string Status1 { get => Status; set => Status = value; }
         public string Packagelvl1 { get => Packagelvl; set => Packagelvl = value; }
+
+        private static void Track_Performance(int ID)
+        {
+           ///////////////Need some work
+        }
+
+        private static void Remove_Packaged(int ID)
+        {
+            Data_Handler.ExecuteSqlCmd("DELETE "
+                                        + "FROM Packages"
+                                        + "WHERE Package_id = " + ID.ToString());
+        }
+
+        private static void Get_Services(int ID)
+        {
+            Data_Handler.ExecuteSqlCmd("SELECT *"
+                                        + "FROM Packages"
+                                        + "WHERE Package_id = " + ID.ToString());
+        }
     }
 }
