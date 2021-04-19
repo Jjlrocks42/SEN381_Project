@@ -4,11 +4,17 @@ using System.Text;
 using SEN381_Project.Layers.Data_Access_Layer;
 using System.Data;
 using System.Data.SqlClient;
+using System.Threading;
+using System.Diagnostics;
 
 namespace SEN381_Project.Layers.Business_Access_Layer
 {
     class Calls
     {
+       
+
+        
+
         private int CallID, ClientID, EmpID;
         private string Client_Name, Call_Type, Employee_Name;
         private DateTime Start_Time, End_time;
@@ -25,6 +31,21 @@ namespace SEN381_Project.Layers.Business_Access_Layer
             Start_Time = start_Time;
             End_time1 = end_time;
             Duration = duration;
+
+            Data_Handler handler = new Data_Handler();
+
+            Thread t = new Thread(new ThreadStart(handler.Handle_Data));
+
+            if (t.IsAlive == false)
+            {
+                t.Start();
+            }
+
+
+        }
+
+        public Calls()
+        {
         }
 
         public DateTime Start_Time1 { get => Start_Time; set => Start_Time = value; }
@@ -37,8 +58,15 @@ namespace SEN381_Project.Layers.Business_Access_Layer
         public int ClientID1 { get => ClientID; set => ClientID = value; }
         public int EmpID1 { get => EmpID; set => EmpID = value; }
 
+
+        public void Make_Call() 
+        {
+        }
+
         private static void View_Logs(int ID)
         {
+           
+
             Data_Handler.ExecuteSqlCmd("SELECT *"
                                         + "FROM Calls"
                                         + "WHERE Cleint_id = " + ID.ToString());

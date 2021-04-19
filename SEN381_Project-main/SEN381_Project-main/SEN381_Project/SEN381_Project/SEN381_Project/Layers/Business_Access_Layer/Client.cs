@@ -4,6 +4,7 @@ using System.Text;
 using SEN381_Project.Layers.Data_Access_Layer;
 using System.Data;
 using System.Data.SqlClient;
+using System.Threading;
 
 namespace SEN381_Project.Layers.Business_Access_Layer
 {
@@ -33,11 +34,25 @@ namespace SEN381_Project.Layers.Business_Access_Layer
             PhoneNumber1 = phoneNumber;
             Email1 = email;
             Address1 = address;
+
+            Data_Handler handler = new Data_Handler();
+
+            Thread t = new Thread(new ThreadStart(handler.Handle_Data));
+
+            if (t.IsAlive == false)
+            {
+                t.Start();
+            }
+
+
         }
 
         private static void View_Client_Business(int ClientID)
         {
+           
+
             DataTable DT = new DataTable();
+
             DT = Data_Handler.ExecuteSqlCmd("SELECT *"
                                         + "FROM Business"
                                         + "WHERE Business_id IN (SELECT Business_id FROM Clients WHERE Client_id = " + ClientID.ToString() + ")");

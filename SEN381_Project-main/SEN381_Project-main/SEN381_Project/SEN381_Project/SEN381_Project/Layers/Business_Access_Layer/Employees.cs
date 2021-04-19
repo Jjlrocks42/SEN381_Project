@@ -4,6 +4,7 @@ using System.Text;
 using SEN381_Project.Layers.Data_Access_Layer;
 using System.Data;
 using System.Data.SqlClient;
+using System.Threading;
 
 namespace SEN381_Project.Layers.Business_Access_Layer
 {
@@ -20,6 +21,16 @@ namespace SEN381_Project.Layers.Business_Access_Layer
             Email = email;
             Address = address;
             JobType = jobType;
+
+            Data_Handler handler = new Data_Handler();
+
+            Thread t = new Thread(new ThreadStart(handler.Handle_Data));
+
+            if (t.IsAlive == false)
+            {
+                t.Start();
+            }
+
         }
 
         public int EmpID1 { get => EmpID; set => EmpID = value; }

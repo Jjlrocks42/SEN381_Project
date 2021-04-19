@@ -4,6 +4,7 @@ using System.Text;
 using SEN381_Project.Layers.Data_Access_Layer;
 using System.Data;
 using System.Data.SqlClient;
+using System.Threading;
 
 namespace SEN381_Project.Layers.Business_Access_Layer
 {
@@ -18,6 +19,17 @@ namespace SEN381_Project.Layers.Business_Access_Layer
             Priority = priority;
             Status = status;
             Packagelvl = packagelvl;
+
+            Data_Handler handler = new Data_Handler();
+
+            Thread t = new Thread(new ThreadStart(handler.Handle_Data));
+
+            if (t.IsAlive == false)
+            {
+                t.Start();
+            }
+
+
         }
 
         public int PackageID1 { get => PackageID; set => PackageID = value; }
@@ -28,7 +40,23 @@ namespace SEN381_Project.Layers.Business_Access_Layer
 
         private static void Track_Performance(int ID)
         {
-           ///////////////Need some work
+            ///////////////Need some work
+            // Data_Handler.ExecuteSqlCmd("SELECT COUNT(Package_id)"
+            //+ "FROM Packages");
+
+            //DataTable DT = new DataTable();
+            //DT = Data_Handler.ExecuteSqlCmd("SELECT 100*( COUNT(Package_id)/COUNT(Client_id) )  FROM Clients INNER JOIN Packages ON #Departments.Department_id = #Employees.Department_ID ");
+
+
+
+
+
+
+
+
+
+
+
         }
 
         private static void Remove_Packaged(int ID)

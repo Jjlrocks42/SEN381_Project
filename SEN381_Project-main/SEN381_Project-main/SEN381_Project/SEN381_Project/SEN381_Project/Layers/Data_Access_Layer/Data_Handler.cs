@@ -7,6 +7,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Runtime.CompilerServices;
 using System.Data.SqlClient;
 using System.Data;
+using System.Threading;
 
 namespace SEN381_Project.Layers.Data_Access_Layer
 {
@@ -36,6 +37,15 @@ namespace SEN381_Project.Layers.Data_Access_Layer
                 Console.WriteLine("\nConnection close");
             }
         }
+
+        //Initializing Thread
+        public void Handle_Data() 
+        {
+            
+        }
+
+
+
 
         //make adustable according to recieved queries
         public static DataTable ExecuteSqlCmd(string command)
